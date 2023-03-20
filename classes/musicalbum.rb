@@ -1,6 +1,6 @@
 require_relative 'item'
 
-class Music < Item
+class MusicAlbum < Item
     def initialize(genre, author, source, _label, publish_date, on_spotify)
         super(genre, author, source, _label, publish_date)
         @on_spotify= on_spotify
