@@ -1,8 +1,9 @@
+# rubocop:disable Metrics/ParameterLists
 class Item
   attr_reader :id, :archived
   attr_accessor :genre, :author, :source, :label, :publish_date
 
-  def initialize(genre, author, source, _label, publish_date)
+  def initialize(genre, author, source, _label, publish_date, archived: false)
     @genre = genre
     @author = author
     @source = source
@@ -19,6 +20,7 @@ class Item
   private
 
   def can_be_archived?
-    publish_date > 10
+    publish_date < Date.today - 10.years
   end
 end
+# rubocop:enable Metrics/ParameterLists
