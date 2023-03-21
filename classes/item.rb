@@ -9,6 +9,7 @@ class Item
     @source = source
     @publish_date = publish_date
     @archived = archived
+    @label = nil
   end
 
   def move_to_archive
