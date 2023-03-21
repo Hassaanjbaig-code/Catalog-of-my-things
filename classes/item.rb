@@ -1,8 +1,8 @@
 class Item
   attr_reader :id, :genre, :archived
-  attr_accessor  :author, :source, :label, :publish_date
+  attr_accessor :author, :source, :label, :publish_date
 
-  def initialize( author, source, _label, publish_date)
+  def initialize(author, source, _label, publish_date)
     super()
     @author = author
     @source = source
