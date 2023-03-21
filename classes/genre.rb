@@ -9,6 +9,7 @@ class Genre
     @name = name
     @item = []
   end
+
   def add_item(item)
     @item << item
     item.genre = self
