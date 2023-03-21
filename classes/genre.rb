@@ -5,8 +5,12 @@ class Genre
   attr_accessor :name
 
   def initialize(name)
-    @id = Ramdon.rand(1..1000)
+    @id = Random.rand(1..1000)
     @name = name
     @item = []
+  end
+  def add_item(item)
+    @item << item
+    item.genre = self
   end
 end
