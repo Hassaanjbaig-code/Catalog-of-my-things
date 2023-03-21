@@ -10,6 +10,6 @@ class Game < Item
   end
 
   def can_be_archived?
-    super && Date.parse(@last_played_at) < Date.parse('2019-01-01')
+    super && Date.parse(@last_played_at) < 2.years.ago
   end
 end
