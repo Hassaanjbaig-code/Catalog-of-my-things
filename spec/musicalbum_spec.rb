@@ -1,7 +1,7 @@
 require_relative '../classes/musicalbum'
 
 describe MusicAlbum do
-  let(:music_album) { MusicAlbum.new('Rock', 'author', 'source', 'label', 'date', true) }
+  let(:music_album) { MusicAlbum.new('author', 'source', 'label', 'date', true) }
 
   it 'has a author' do
     expect(music_album.author).to eq('author')
