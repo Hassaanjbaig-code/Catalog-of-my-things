@@ -1,3 +1,4 @@
+# rubocop:disable Metrics/ParameterLists
 class Item
   attr_reader :id, :archived
   attr_accessor :genre, :author, :source, :label, :publish_date
@@ -8,6 +9,7 @@ class Item
     @source = source
     @publish_date = publish_date
     @archived = archived
+    @label = nil
   end
 
   def move_to_archive
@@ -19,6 +21,7 @@ class Item
   private
 
   def can_be_archived?
-    publish_date > 10
+    publish_date < Date.today - 10.years
   end
 end
+# rubocop:enable Metrics/ParameterLists
