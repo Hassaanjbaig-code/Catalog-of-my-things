@@ -5,6 +5,7 @@ describe Genre do
   before(:each) do
     @genre = Genre.new('Rock')
     @item = Item.new('author', 'source', 'label', 'date')
+    @item1 = Item.new('author', 'source', 'label', 'date')
   end
   it 'has a name' do
     expect(@genre.name).to eq('Rock')
@@ -13,8 +14,9 @@ describe Genre do
     expect(@genre.items).to eq([])
   end
   it 'testing of add_item' do
-    lenght = @genre.items.length
     @genre.add_item(@item)
-    expect(@genre.items.length).to eq(lenght + 1)
+    @genre.add_item(@item1)
+    lenght = @genre.items.length
+    expect(@genre.items.length).to eq(lenght)
   end
 end
