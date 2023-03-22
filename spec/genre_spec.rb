@@ -4,8 +4,8 @@ require_relative '../classes/item'
 describe Genre do
   before(:each) do
     @genre = Genre.new('Rock')
-    @item = Item.new('author', 'source', 'label', 'date')
-    @item1 = Item.new('author', 'source', 'label', 'date')
+    @item = Item.new('date')
+    @item1 = Item.new('date')
   end
   it 'has a name' do
     expect(@genre.name).to eq('Rock')
