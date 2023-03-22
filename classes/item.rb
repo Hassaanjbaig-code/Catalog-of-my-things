@@ -28,6 +28,3 @@ class Item
     publish_date < Date.today - 10.years
   end
 end
-
-# item = Item.new('author', 'source', 'label', 'date')
-# puts item.genre('genre')
