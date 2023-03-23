@@ -1,34 +1,35 @@
-require_relative '../classes/item'
-require_relative '../classes/game'
+require 'active_support/all'
+
 require 'date'
+require_relative '../classes/game'
 
-RSpec.describe Game do
+describe Game do
   describe '#can_be_archived?' do
-    context 'when the game was last played more than two years ago' do
+    context 'when last played more than 2 years ago' do
       it 'returns true' do
-        game = Game.new(true, '2018-01-01', '2021-01-01')
-        expect(game.can_be_archived?).to eq(true)
+        game = Game.new(true, (Date.today - 2.years - 1.day).to_s, Date.today - 1.year)
+        expect(game.can_be_archived?).to be true
       end
     end
 
-    context 'when the game was last played less than two years ago' do
+    context 'when last played less than 2 years ago' do
       it 'returns false' do
-        game = Game.new(true, Date.today.to_s, '2021-01-01')
-        expect(game.can_be_archived?).to eq(false)
+        game = Game.new(true, (Date.today - 1.year).to_s, Date.today - 1.year)
+        expect(game.can_be_archived?).to be false
       end
     end
 
-    context 'when the game has not yet been published' do
-      it 'returns false' do
-        game = Game.new(true, '2018-01-01', Date.today.to_s)
-        expect(game.can_be_archived?).to eq(false)
+    context 'when the game was published more than 10 years ago' do
+      it 'returns true' do
+        game = Game.new(true, (Date.today - 1.year).to_s, Date.today - 11.years)
+        expect(game.can_be_archived?).to be true
       end
     end
 
-    context 'when the game has no multiplayer' do
+    context 'when the game was published less than 10 years ago' do
       it 'returns false' do
-        game = Game.new(false, '2018-01-01', '2021-01-01')
-        expect(game.can_be_archived?).to eq(false)
+        game = Game.new(true, (Date.today - 1.year).to_s, Date.today - 9.years)
+        expect(game.can_be_archived?).to be false
       end
     end
   end
