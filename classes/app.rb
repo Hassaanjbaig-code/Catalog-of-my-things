@@ -12,6 +12,7 @@ class App
     @music_album = []
     @label = []
     @books = []
+    @games = []
   end
 
   def add_musicalbum
@@ -107,7 +108,37 @@ class App
       puts "Publisher: #{book.publisher}, Author:  #{book.author}"
       puts "Publish Date: #{book.publish_date}, Archived: #{book.archived}, Cover-State: #{book.cover_state}"
       puts '---------------'
+  end
+
+  def add_game
+    puts 'Is it multiplayer? (y/n)'
+    multiplayer = gets.chomp
+    case multiplayer
+    when 'y'
+      multiplayer = true
+    when 'n'
+      multiplayer = false
+    else
+      puts 'Invalid choice'
+      exit
     end
+    puts 'What is the last played date? [yyyy-mm-dd]'
+    last_played_at = gets.chomp
+    puts 'What is the publish date? [yyyy-mm-dd]'
+    publish_date = gets.chomp
+
+    game = Game.new(multiplayer, last_played_at, publish_date)
+    @games << game
+    puts 'Game added!'
+  end
+
+  def view_game
+    puts '---------------'
+    @games.each do |game|
+      puts "Multiplayer: #{game.multiplayer}, Last played: #{game.last_played_at}"
+      puts "Publish date: #{game.publish_date}"
+    end
+    puts '---------------'
   end
 
   def store_music_album
@@ -132,6 +163,16 @@ class App
     file.close
   end
 
+  def store_game
+    games = []
+    @games.each do |game|
+      game = { multiplayer: game.multiplayer, last_played_at: game.last_played_at, publish_date: game.publish_date }.to_h
+      games.push(game)
+    end
+    File.open('store/game.json', 'w') do |file|
+      file.puts(JSON.generate(games))
+  end
+
   def store_label
     labels = []
     @label.each do |label|
@@ -148,6 +189,14 @@ class App
     data_hash = JSON.parse(file)
     data_hash.each do |genre|
       @genre << Genre.new(genre['name'])
+    end
+  end
+
+  def load_file_game
+    file = File.read('store/game.json')
+    data_hash = JSON.parse(file)
+    data_hash.each do |game|
+      @games << Game.new(game['multiplayer'], game['last_played_at'], game['publish_date'])
     end
   end
 
