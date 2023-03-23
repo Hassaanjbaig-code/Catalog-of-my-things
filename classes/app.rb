@@ -2,6 +2,8 @@ require_relative 'musicalbum'
 require_relative 'genre'
 require_relative 'label'
 require_relative 'book'
+require_relative 'game'
+require_relative 'author'
 require 'json'
 
 class App
@@ -13,6 +15,7 @@ class App
     @label = []
     @books = []
     @games = []
+    @authors = []
   end
 
   def add_musicalbum
@@ -141,6 +144,25 @@ class App
     puts '---------------'
   end
 
+  def add_author
+    puts 'What is the first name?'
+    first_name = gets.chomp
+    puts 'What is the last name?'
+    last_name = gets.chomp
+
+    author = Author.new(first_name, last_name)
+    @authors << author
+    puts 'Author added!'
+  end
+
+  def view_author
+    puts '---------------'
+    @authors.each do |author|
+      puts "First name: #{author.first_name}, Last name: #{author.last_name}"
+    end
+    puts '---------------'
+  end
+
   def store_music_album
     musicalbum = []
     @music_album.each do |music_album|
@@ -173,6 +195,17 @@ class App
       file.puts(JSON.generate(games))
   end
 
+  def store_author
+    authors = []
+    @authors.each do |author|
+      author = { first_name: author.first_name, last_name: author.last_name }
+      authors.push(author)
+    end
+    file = File.open('store/author.json', 'w')
+    file.puts(JSON.generate(authors))
+    file.close
+  end 
+
   def store_label
     labels = []
     @label.each do |label|
@@ -197,6 +230,14 @@ class App
     data_hash = JSON.parse(file)
     data_hash.each do |game|
       @games << Game.new(game['multiplayer'], game['last_played_at'], game['publish_date'])
+    end
+  end
+
+  def load_file_author
+    file = File.read('store/author.json')
+    data_hash = JSON.parse(file)
+    data_hash.each do |author|
+      @authors << Author.new(author['first_name'], author['last_name'])
     end
   end
 
