@@ -36,29 +36,35 @@ class App
         puts 'Music album added'
     end
     def View_MusicAlbum
+        puts '---------------'
         @music_album.each do |music_album|
             puts "Publish date: #{music_album.publish_date}"
             puts "On spotify: #{music_album.on_spotify}"
         end
+        puts '---------------'
     end
     def Add_Genre(genre)
         genre = Genre.new(genre)
         @genre << genre
     end
     def View_Genre
+        puts '---------------'
         @genre.each do |genre|
             puts "Genre: #{genre.name}"
         end
+        puts '---------------'
     end
     def Add_label(color, title)
         label = Label.new(color, title)
         @label << label
     end
     def View_Label
+        puts '---------------'
         @label.each do |label|
             puts "Color: #{label.color}"
             puts "Title: #{label.title}"
         end
+        puts '---------------'
     end
 
 end
