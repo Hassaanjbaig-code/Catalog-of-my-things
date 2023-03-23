@@ -10,7 +10,6 @@ create table music_album (
     on_spotify boolean
 );
 
-
 CREATE TABLE book (
     publisher VARCHAR(255),
     cover_state VARCHAR(255)
@@ -22,4 +21,11 @@ CREATE TABLE label (
     title VARCHAR(255),
     color VARCHAR(255),
     items ARRAY
+);
+
+CREATE TABLE game (
+    id SERIAL PRIMARY KEY,
+    multiplayer BOOLEAN,
+    last_played_at TIMESTAMP,
+    publish_date TIMESTAMP,
 );
