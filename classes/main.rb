@@ -49,7 +49,7 @@ class Main
     when 7
       app.add_musicalbum
     when 8
-     app.add_book
+      app.add_book
     when 9
       app.add_game
     when 10

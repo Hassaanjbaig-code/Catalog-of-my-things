@@ -95,10 +95,18 @@ class App
     label = Label.new(color, title)
     book.label = label
     @label << label
-  
+
 
     puts 'Book added!'
     book
   end
 
+  def view_book
+    @books.each do |book|
+      puts '---------------'
+      puts "Publisher: #{book.publisher}, Author:  #{book.author}"
+      puts "Publish Date: #{book.publish_date}, Archived: #{book.archived}, Cover-State: #{book.cover_state}"
+      puts '---------------'
+    end
+  end
 end
