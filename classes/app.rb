@@ -1,4 +1,5 @@
 require_relative 'musicalbum'
+require_relative 'genre'
 
 class App
     attr_reader :genre, :music_album
@@ -43,7 +44,3 @@ class App
         end
     end
 end
-
-app = App.new
-app.Add_MusicAlbum
-app.View_MusicAlbum
