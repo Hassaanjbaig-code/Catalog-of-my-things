@@ -113,32 +113,33 @@ class App
   def store_music_album
     musicalbum = []
     @music_album.each do |music_album|
-      music = { publish_date: music_album.publish_date, on_spotify: music_album.on_spotify }
-      musicalbum.push(JSON.generate(music))
+      music = { publish_date: music_album.publish_date, on_spotify: music_album.on_spotify }.to_h
+      musicalbum.push(music)
     end
     file = File.open('store/music_album.json', 'w')
-    file.write(musicalbum)
+    file.puts(JSON.generate(musicalbum))
     file.close
   end
 
   def store_genre
-       genres = []
-       @genre.each do |genre|
-         genre = { name: genre.name }
-         genres.push(JSON.generate(genre))
-       end
-       file = File.open('store/genre.json', 'w')
-       file.write(genres)
-       file.close
+    genres = []
+    @genre.each do |genre|
+      genre = { name: genre.name }.to_h
+      genres.push(genre)
     end
-    def store_label
-        labels = []
-        @label.each do |label|
-            label = { color: label.color, title: label.title }
-            labels.push(JSON.generate(label))
-        end
-        file = File.open('store/label.json', 'w')
-        file.write(labels)
-        file.close
+    file = File.open('store/genre.json', 'w')
+    file.puts(JSON.generate(genres))
+    file.close
+  end
+
+  def store_label
+    labels = []
+    @label.each do |label|
+      store_label = { color: label.color, title: label.title }.to_h
+      labels.push(store_label)
     end
+    file = File.open('store/label.json', 'w')
+    file.puts(JSON.generate(labels))
+    file.close
+  end
 end
