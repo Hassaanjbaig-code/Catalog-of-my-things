@@ -23,4 +23,3 @@ describe Author do
     expect { author.add_item(item) }.to change { author.items.count }.by(1)
   end
 end
-
