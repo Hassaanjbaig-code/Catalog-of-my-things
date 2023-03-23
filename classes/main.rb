@@ -1,5 +1,7 @@
 require_relative 'item'
 require_relative 'app'
+require_relative 'label'
+require_relative 'book'
 
 class Main
   def main
@@ -45,7 +47,7 @@ class Main
     when 6
       app.view_author
     when 7
-      app.add_musicAlbum
+      app.add_musicalbum
     when 8
       app.add_book
     when 9
