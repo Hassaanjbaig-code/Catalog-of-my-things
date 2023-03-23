@@ -13,48 +13,52 @@ class Main
   def home_page(app)
     puts 'What would you like to do?'
     puts [
-        '1 => List all Music_Albums',
-        '2 => List all Genres',
-        '3 => List all books',
-        '4 => List all Labels',
-        '5 => List all Games',
-        '6 => List all Authors',
-        '7 => Create an Music Album',
-        '8 => Create a Book',
-        '9 => Create a Game',
-        '10 => Exit'
+      '1 => List all Music_Albums',
+      '2 => List all Genres',
+      '3 => List all books',
+      '4 => List all Labels',
+      '5 => List all Games',
+      '6 => List all Authors',
+      '7 => Create an Music Album',
+      '8 => Create a Book',
+      '9 => Create a Game',
+      '10 => Exit'
     ]
     choice = gets.chomp.to_i
-    home_page_choice(choice,app)
+    address(choice, app)
   end
 
-  def home_page_choice(choice,app)
+  # rubocop:disable Metrics/CyclomaticComplexity
+
+  def address(choice, app)
     case choice
     when 1
-        app.View_MusicAlbum
+      app.view_musicalbum
     when 2
-        app.View_Genre
+      app.view_genre
     when 3
-        app.View_Book
+      app.view_book
     when 4
-        app.View_Label
+      app.view_label
     when 5
-        app.View_Game
+      app.view_game
     when 6
-        app.View_Author
+      app.view_author
     when 7
-        app.Add_MusicAlbum
+      app.add_musicAlbum
     when 8
-        app.Add_Book
+      app.add_book
     when 9
-        app.Add_Game
+      app.add_game
     when 10
-        exit
+      exit
     else
       puts 'Invalid choice'
     end
   end
+  # rubocop:enable Metrics/CyclomaticComplexity
 end
+
 
 main = Main.new
 main.main
