@@ -120,4 +120,15 @@ class App
     file.write(musicalbum)
     file.close
   end
+
+  def store_genre
+       genres = []
+       @genre.each do |genre|
+         genre = { name: genre.name }
+         genres.push(JSON.generate(genre))
+       end
+       file = File.open('store/genre.json', 'w')
+       file.write(genres)
+       file.close
+    end
 end
