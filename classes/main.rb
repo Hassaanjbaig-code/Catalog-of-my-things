@@ -27,6 +27,7 @@ class Main
       '9 => Create a Game',
       '10 => Exit'
     ]
+    print 'Select a number: '
     choice = gets.chomp.to_i
     address(choice, app)
   end
@@ -64,7 +65,3 @@ class Main
   end
   # rubocop:enable Metrics/CyclomaticComplexity
 end
-
-
-main = Main.new
-main.main
