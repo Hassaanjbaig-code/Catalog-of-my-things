@@ -4,7 +4,7 @@ require 'date'
 
 describe Label do
   describe '#add_item' do
-    let(:label) { Label.new(1, 'red', 'Label 1') }
+    let(:label) { Label.new('red', 'Label 1') }
     let(:item) { Item.new(Date.today.prev_year) }
 
 

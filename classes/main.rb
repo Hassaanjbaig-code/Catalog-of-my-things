@@ -1,70 +1,64 @@
 require_relative 'item'
+require_relative 'app'
 
 class Main
-  def initialize
-    @items = []
-  end
-
   def main
+    app = App.new
     puts 'Welcome to my app'
     loop do
-      home_page
+      home_page(app)
     end
   end
 
-  def home_page
+  def home_page(app)
     puts 'What would you like to do?'
     puts [
-      '1. Add a new item',
-      '2. View all items',
-      '3. View all archived items',
-      '4. View all unarchived items',
-      '5. Exit'
+      '1 => List all Music_Albums',
+      '2 => List all Genres',
+      '3 => List all books',
+      '4 => List all Labels',
+      '5 => List all Games',
+      '6 => List all Authors',
+      '7 => Create an Music Album',
+      '8 => Create a Book',
+      '9 => Create a Game',
+      '10 => Exit'
     ]
     choice = gets.chomp.to_i
-    home_page_choice(choice)
+    address(choice, app)
   end
 
-  def home_page_choice(choice)
+  # rubocop:disable Metrics/CyclomaticComplexity
+
+  def address(choice, app)
     case choice
     when 1
-      add_item
+      app.view_musicalbum
     when 2
-      view_all_items
+      app.view_genre
     when 3
-      view_all_archived_items
+      app.view_book
     when 4
-      view_all_unarchived_items
+      app.view_label
     when 5
+      app.view_game
+    when 6
+      app.view_author
+    when 7
+      app.add_musicAlbum
+    when 8
+      app.add_book
+    when 9
+      app.add_game
+    when 10
       exit
     else
       puts 'Invalid choice'
     end
   end
-
-  def add_item
-    puts 'What is the genre?'
-    genre = gets.chomp
-    puts 'What is the author?'
-    author = gets.chomp
-    puts 'What is the source?'
-    source = gets.chomp
-    puts 'What is the label?'
-    label = gets.chomp
-    puts 'What is the publish date?'
-    date = gets.chomp
-    item = Item.new(genre, author, source, label, date)
-    @items << item
-  end
-
-  def view_all_items
-    @items.each_with_index do |item, index|
-      puts "#{index} Genre: #{item.genre},
-      Author: #{item.author}, Source: #{item.source},
-      Label: #{item.label}, Publish Date: #{item.publish_date}"
-    end
-  end
+  # rubocop:enable Metrics/CyclomaticComplexity
 end
+
 
 main = Main.new
 main.main
