@@ -16,4 +16,11 @@ describe Author do
     author = Author.new('first_name', 'last_name')
     expect(author.items).to eq([])
   end
+
+  it 'adds item to the author' do
+    author = Author.new('first_name', 'last_name')
+    item = Item.new('23-3-2023')
+    expect { author.add_item(item) }.to change { author.items.count }.by(1)
+  end
 end
+
