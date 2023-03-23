@@ -1,11 +1,12 @@
 require_relative 'item'
 require_relative 'app'
-require_relative 'label'
-require_relative 'book'
 
 class Main
   def main
     app = App.new
+    app.load_file_genre
+    app.load_file_music_album
+    app.load_file_label
     puts 'Welcome to my app'
     loop do
       home_page(app)
