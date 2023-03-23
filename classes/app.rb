@@ -96,7 +96,6 @@ class App
     book.label = label
     @label << label
 
-
     puts 'Book added!'
     book
   end
