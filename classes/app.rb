@@ -1,6 +1,7 @@
 require_relative 'musicalbum'
 require_relative 'genre'
 require_relative 'label'
+require_relative 'book'
 
 class App
   attr_reader :genre, :music_album
@@ -9,6 +10,7 @@ class App
     @genre = []
     @music_album = []
     @label = []
+    @books = []
   end
 
   def add_musicalbum
@@ -33,8 +35,8 @@ class App
     end
     music_album = MusicAlbum.new(date, spotify)
     @music_album << music_album
-    Add_Genre(genre)
-    Add_label(color, title)
+    add_genre(genre)
+    add_label(color, title)
     puts 'Music album added'
   end
 
@@ -73,4 +75,30 @@ class App
     end
     puts '---------------'
   end
+
+  def add_book
+    puts 'What is the author?'
+    author = gets.chomp
+    puts 'What is the publisher?'
+    publisher = gets.chomp
+    puts 'What is the publish date?'
+    date = gets.chomp
+    puts 'What is the cover state? (good/bad)'
+    cover_state = gets.chomp
+    puts 'What is the label title?'
+    title = gets.chomp
+    puts 'What is the label color?'
+    color = gets.chomp
+
+    book = Book.new(publisher, author, date, false, cover_state: cover_state)
+    @books << book
+    label = Label.new(color, title)
+    book.label = label
+    @label << label
+  
+
+    puts 'Book added!'
+    book
+  end
+
 end
