@@ -1,11 +1,12 @@
 require_relative 'item'
 require_relative 'app'
-require_relative 'label'
-require_relative 'book'
 
 class Main
   def main
     app = App.new
+    app.load_file_genre
+    app.load_file_music_album
+    app.load_file_label
     puts 'Welcome to my app'
     loop do
       home_page(app)
@@ -26,6 +27,7 @@ class Main
       '9 => Create a Game',
       '10 => Exit'
     ]
+    print 'Select a number: '
     choice = gets.chomp.to_i
     address(choice, app)
   end
@@ -53,6 +55,9 @@ class Main
     when 9
       app.add_game
     when 10
+      app.store_music_album
+      app.store_genre
+      app.store_label
       exit
     else
       puts 'Invalid choice'
@@ -60,7 +65,3 @@ class Main
   end
   # rubocop:enable Metrics/CyclomaticComplexity
 end
-
-
-main = Main.new
-main.main

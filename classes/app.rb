@@ -2,6 +2,7 @@ require_relative 'musicalbum'
 require_relative 'genre'
 require_relative 'label'
 require_relative 'book'
+require 'json'
 
 class App
   attr_reader :genre, :music_album
@@ -106,6 +107,63 @@ class App
       puts "Publisher: #{book.publisher}, Author:  #{book.author}"
       puts "Publish Date: #{book.publish_date}, Archived: #{book.archived}, Cover-State: #{book.cover_state}"
       puts '---------------'
+    end
+  end
+
+  def store_music_album
+    musicalbum = []
+    @music_album.each do |music_album|
+      music = { publish_date: music_album.publish_date, on_spotify: music_album.on_spotify }.to_h
+      musicalbum.push(music)
+    end
+    file = File.open('store/music_album.json', 'w')
+    file.puts(JSON.generate(musicalbum))
+    file.close
+  end
+
+  def store_genre
+    genres = []
+    @genre.each do |genre|
+      genre = { name: genre.name }.to_h
+      genres.push(genre)
+    end
+    file = File.open('store/genre.json', 'w')
+    file.puts(JSON.generate(genres))
+    file.close
+  end
+
+  def store_label
+    labels = []
+    @label.each do |label|
+      store_label = { color: label.color, title: label.title }.to_h
+      labels.push(store_label)
+    end
+    file = File.open('store/label.json', 'w')
+    file.puts(JSON.generate(labels))
+    file.close
+  end
+
+  def load_file_genre
+    file = File.read('store/genre.json')
+    data_hash = JSON.parse(file)
+    data_hash.each do |genre|
+      @genre << Genre.new(genre['name'])
+    end
+  end
+
+  def load_file_label
+    file = File.read('store/label.json')
+    data_hash = JSON.parse(file)
+    data_hash.each do |label|
+      @label << Label.new(label['color'], label['title'])
+    end
+  end
+
+  def load_file_music_album
+    file = File.read('store/music_album.json')
+    data_hash = JSON.parse(file)
+    data_hash.each do |music_album|
+      @music_album << MusicAlbum.new(music_album['publish_date'], music_album['on_spotify'])
     end
   end
 end
