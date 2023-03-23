@@ -15,11 +15,18 @@ class Main
   def home_page
     puts 'What would you like to do?'
     puts [
-      '1. Add a new item',
-      '2. View all items',
-      '3. View all archived items',
-      '4. View all unarchived items',
-      '5. Exit'
+        1 => 'List all Albums',
+        2 => 'List all Genres',
+        3 => 'List all books',
+        4 => 'List all Labels',
+        5 => 'List all Games',
+        6 => 'List all Authors',
+        7 => 'Create an Album',
+        8 => 'Create a Genre',
+        9 => 'Create a Book',
+        10 => 'Create a Label',
+        11 => 'Create a Game',
+        12 => 'Exit'
     ]
     choice = gets.chomp.to_i
     home_page_choice(choice)
