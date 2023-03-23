@@ -142,6 +142,7 @@ class App
     file.puts(JSON.generate(labels))
     file.close
   end
+
   def load_file_genre
     file = File.read('store/genre.json')
     data_hash = JSON.parse(file)
@@ -149,13 +150,15 @@ class App
       @genre << Genre.new(genre['name'])
     end
   end
+
   def load_file_label
     file = File.read('store/label.json')
     data_hash = JSON.parse(file)
     data_hash.each do |label|
-        @label << Label.new(label['color'], label['title'])
+      @label << Label.new(label['color'], label['title'])
     end
   end
+
   def load_file_music_album
     file = File.read('store/music_album.json')
     data_hash = JSON.parse(file)
