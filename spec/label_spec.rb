@@ -11,7 +11,7 @@ describe Label do
     it 'adds item to the label' do
       expect { label.add_item(item) }.to change { label.items.count }.by(1)
     end
-    
+
     it 'sets label on the item' do
       label.add_item(item)
       expect(item.label).to eq(label)
