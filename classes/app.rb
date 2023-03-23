@@ -131,4 +131,14 @@ class App
        file.write(genres)
        file.close
     end
+    def store_label
+        labels = []
+        @label.each do |label|
+            label = { color: label.color, title: label.title }
+            labels.push(JSON.generate(label))
+        end
+        file = File.open('store/label.json', 'w')
+        file.write(labels)
+        file.close
+    end
 end

@@ -55,6 +55,7 @@ class Main
     when 10
       app.store_music_album
       app.store_genre
+      app.store_label
       exit
     else
       puts 'Invalid choice'
