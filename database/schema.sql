@@ -28,3 +28,10 @@ CREATE TABLE author (
     first_name varchar(255),
     last_name varchar(255)
 );
+
+CREATE TABLE item (
+    id SERIAL PRIMARY KEY,
+    title varchar(255),
+    publish_date date,
+    author_id integer REFERENCES author(id)
+);
