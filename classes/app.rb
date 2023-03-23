@@ -105,14 +105,6 @@ class App
     book
   end
 
-  def view_book
-    @books.each do |book|
-      puts '---------------'
-      puts "Publisher: #{book.publisher}, Author:  #{book.author}"
-      puts "Publish Date: #{book.publish_date}, Archived: #{book.archived}, Cover-State: #{book.cover_state}"
-      puts '---------------'
-  end
-
   def add_game
     puts 'Is it multiplayer? (y/n)'
     multiplayer = gets.chomp
@@ -163,6 +155,15 @@ class App
     puts '---------------'
   end
 
+  def view_book
+    @books.each do |book|
+      puts '---------------'
+      puts "Publisher: #{book.publisher}, Author:  #{book.author}"
+      puts "Publish Date: #{book.publish_date}, Archived: #{book.archived}, Cover-State: #{book.cover_state}"
+      puts '---------------'
+    end
+  end
+
   def store_music_album
     musicalbum = []
     @music_album.each do |music_album|
@@ -193,6 +194,7 @@ class App
     end
     File.open('store/game.json', 'w') do |file|
       file.puts(JSON.generate(games))
+    end
   end
 
   def store_author
@@ -204,7 +206,7 @@ class App
     file = File.open('store/author.json', 'w')
     file.puts(JSON.generate(authors))
     file.close
-  end 
+  end
 
   def store_label
     labels = []
