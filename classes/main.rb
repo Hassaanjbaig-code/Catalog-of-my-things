@@ -53,6 +53,7 @@ class Main
     when 9
       app.add_game
     when 10
+      app.store_music_album
       exit
     else
       puts 'Invalid choice'

@@ -2,6 +2,7 @@ require_relative 'musicalbum'
 require_relative 'genre'
 require_relative 'label'
 require_relative 'book'
+require 'json'
 
 class App
   attr_reader :genre, :music_album
@@ -107,5 +108,16 @@ class App
       puts "Publish Date: #{book.publish_date}, Archived: #{book.archived}, Cover-State: #{book.cover_state}"
       puts '---------------'
     end
+  end
+
+  def store_music_album
+    musicalbum = []
+    @music_album.each do |music_album|
+      music = { publish_date: music_album.publish_date, on_spotify: music_album.on_spotify }
+      musicalbum.push(JSON.generate(music))
+    end
+    file = File.open('store/music_album.json', 'w')
+    file.write(musicalbum)
+    file.close
   end
 end
