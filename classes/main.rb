@@ -1,5 +1,6 @@
 require_relative 'item'
 require_relative 'app'
+require_relative 'book'
 
 class Main
   def main
@@ -7,6 +8,8 @@ class Main
     app.load_file_genre
     app.load_file_music_album
     app.load_file_label
+    Book.load_file_books
+    Book.load_file_label
     puts 'Welcome to my app'
     loop do
       home_page(app)
@@ -41,7 +44,7 @@ class Main
     when 2
       app.view_genre
     when 3
-      app.view_book
+      Book.view_book
     when 4
       app.view_label
     when 5
@@ -51,13 +54,15 @@ class Main
     when 7
       app.add_musicalbum
     when 8
-      app.add_book
+      Book.add_book
     when 9
       app.add_game
     when 10
       app.store_music_album
       app.store_genre
       app.store_label
+      Book.store_label
+      Book.store_books
       exit
     else
       puts 'Invalid choice'

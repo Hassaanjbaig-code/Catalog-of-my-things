@@ -1,5 +1,4 @@
 require 'active_support/all'
-
 require 'date'
 require_relative '../classes/game'
 
