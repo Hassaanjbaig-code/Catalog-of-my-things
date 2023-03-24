@@ -89,8 +89,7 @@ To install the existing dependecies,run:
 ```
 
 And finally if you want to have fun by entering data into the application, run
-`ruby main.rb` and you will be provided with a list of items that you can add or
-view items in the application.
+`ruby main.rb` and you will be provided with a list of what you can do
 
 
 You are all set up!
