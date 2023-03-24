@@ -8,6 +8,11 @@ CREATE TABLE book (
     cover_state VARCHAR(255)
 );
 
+CREATE TABLE genre (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(255),
+    items ARRAY
+);
 
 CREATE TABLE label (
     id SERIAL PRIMARY KEY,
@@ -34,4 +39,7 @@ CREATE TABLE item (
     title varchar(255),
     publish_date date,
     author_id integer REFERENCES author(id)
+    genre_id integer REFERENCES genre(id)
+    label_id integer REFERENCES label(id)
+    archived boolean
 );
