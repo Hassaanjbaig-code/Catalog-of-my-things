@@ -15,6 +15,7 @@
     - [Prerequisites](#prerequisites)
     - [Setup](#setup)
     - [Run tests](#run-tests)
+    - [Video walkthrough](#video-walkthrough)
   - [👥 Authors ](#-authors-)
   - [🔭 Future Features](#future-features)
   - [🤝 Contributing ](#-contributing-)
@@ -74,7 +75,7 @@ cd clone https://github.com/RoyJumah/catalog-of-my-things.git
 Navigate into the cloned folder or repository by running the command:
 
 ```JavaScript
- cd <folder/name of the repository>
+ cd <folder/catalog-of-my-things>
 ```
 
 If VsCode is your default code editor, run:
@@ -85,7 +86,7 @@ If VsCode is your default code editor, run:
 
 To install the existing dependecies,run:
 ```JavaScript
-   npm i
+  bundle install
 ```
 
 And finally if you want to have fun by entering data into the application, run
@@ -105,6 +106,12 @@ To run tests, run the following command:
 ```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
+ 
+ ### Video Walkthrough
+ 
+- The [link](https://drive.google.com/file/d/10nQJ__1_6x_fZV_7pQkszlV35mwhVSvi/view?usp=share_link) to the video discussing about our application and its intereasting features!
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- AUTHORS -->
 
@@ -118,15 +125,14 @@ To run tests, run the following command:
 
 👤 **Hassaan Baig**
 
-- GitHub: [@donald_akite](https://github.com/Hassaanjbaig-code)
-- Twitter: [@twitter](https://twitter.com/)
-- LinkedIn: [linkedin](https://www.linkedin.com/in/)
+- GitHub: [@hassanBaig](https://github.com/Hassaanjbaig-code)
+- LinkedIn: [hassanBaig](https://www.linkedin.com/in/hassaan-jawwad-baig/)
 
 👤 **Kennedy Owusu**
 
-- GitHub: [@donald_akite](https://github.com/kennedyowusu)
-- Twitter: [@twitter](https://twitter.com/)
-- LinkedIn: [linkedin](https://www.linkedin.com/in/)
+- GitHub: [@kennedyowusu](https://github.com/kennedyowusu)
+- Twitter: [@_iamkobby](https://twitter.com/@_iamkobby)
+- LinkedIn: [@kennedyowusu](www.linkedin.com/in/kennedyowusu)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
