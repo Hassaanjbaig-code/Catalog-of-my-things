@@ -8,6 +8,8 @@ class Main
     app.load_file_genre
     app.load_file_music_album
     app.load_file_label
+    app.load_file_game
+    app.load_file_author
     Book.load_file_books
     Book.load_file_label
     puts 'Welcome to my app'
@@ -61,6 +63,8 @@ class Main
       app.store_music_album
       app.store_genre
       app.store_label
+      app.store_game
+      app.store_author
       Book.store_label
       Book.store_books
       exit
