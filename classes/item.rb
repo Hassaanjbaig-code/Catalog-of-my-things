@@ -35,6 +35,8 @@ class Item
   private
 
   def can_be_archived?
-    publish_date < Date.today - 10.years
+    today = Date.today
+    ten_years_ago = Date.new(today.year - 10, today.month, today.day)
+    @published_date < ten_years_ago
   end
 end
