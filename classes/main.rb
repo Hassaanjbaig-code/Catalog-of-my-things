@@ -7,7 +7,6 @@ class Main
     app = App.new
     app.load_file_genre
     app.load_file_music_album
-    app.load_file_label
     app.load_file_game
     app.load_file_author
     Book.load_file_books
@@ -48,7 +47,7 @@ class Main
     when 3
       Book.view_book
     when 4
-      app.view_label
+      Book.view_label
     when 5
       app.view_game
     when 6
@@ -62,7 +61,6 @@ class Main
     when 10
       app.store_music_album
       app.store_genre
-      app.store_label
       app.store_game
       app.store_author
       Book.store_label

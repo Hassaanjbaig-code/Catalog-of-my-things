@@ -18,7 +18,6 @@ class Book < Item
   end
 
   def self.add_book
-    @label = []
     puts 'What is the author?'
     author = gets.chomp
     puts 'What is the publisher?'
@@ -47,6 +46,14 @@ class Book < Item
       puts '---------------'
       puts "Publisher: #{book.publisher}, Author:  #{book.author}"
       puts "Publish Date: #{book.publish_date}, Archived: #{book.archived}, Cover-State: #{book.cover_state}"
+      puts '---------------'
+    end
+  end
+
+  def self.view_label
+    @label.each do |book|
+      puts '---------------'
+      puts "Color: #{book.color}, Title:  #{book.title}"
       puts '---------------'
     end
   end
