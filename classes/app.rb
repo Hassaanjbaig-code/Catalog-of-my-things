@@ -101,7 +101,6 @@ class App
     puts 'What is the last name?'
     last_name = gets.chomp
 
-
     game = Game.new(multiplayer, last_played_at, publish_date)
     @games << game
     add_author(first_name, last_name)
