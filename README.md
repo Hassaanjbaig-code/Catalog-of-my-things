@@ -144,7 +144,7 @@ To run tests, run the following command:
 - [ ] Add/edit media properties
 - [ ] User authetication and permissions
 - [ ] Integration with external APIs
- And all of this will be built in a beautiful and well-organized way!
+- [ ] And all of this will be built in a beautiful and well-organized way!
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 <!-- CONTRIBUTING -->
