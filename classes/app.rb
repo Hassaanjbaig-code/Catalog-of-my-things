@@ -11,7 +11,6 @@ class App
     @genre = []
     @music_album = []
     @label = []
-    @books = []
   end
 
   def add_musicalbum
@@ -75,30 +74,6 @@ class App
       puts "Title: #{label.title}"
     end
     puts '---------------'
-  end
-
-  def add_book
-    puts 'What is the author?'
-    author = gets.chomp
-    puts 'What is the publisher?'
-    publisher = gets.chomp
-    puts 'What is the publish date?'
-    date = gets.chomp
-    puts 'What is the cover state? (good/bad)'
-    cover_state = gets.chomp
-    puts 'What is the label title?'
-    title = gets.chomp
-    puts 'What is the label color?'
-    color = gets.chomp
-
-    book = Book.new(publisher, author, date, false, cover_state: cover_state)
-    @books << book
-    label = Label.new(color, title)
-    book.label = label
-    @label << label
-
-    puts 'Book added!'
-    book
   end
 
   def view_book
