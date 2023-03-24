@@ -11,6 +11,8 @@ class Game < Item
   end
 
   def can_be_archived?
-    super || Date.parse(@last_played_at) < 2.years.ago
+    today = Date.today
+    two_years_ago = Date.new(today.year - 2, today.month, today.day)
+    super && @last_played < two_years_ago
   end
 end
