@@ -79,6 +79,7 @@ class App
     end
     puts '---------------'
   end
+
   def add_game
     puts 'Is it multiplayer? (y/n)'
     multiplayer = gets.chomp
@@ -157,14 +158,13 @@ class App
       game = { multiplayer: game.multiplayer, last_played_at: game.last_played_at, publish_date: game.publish_date }.to_h
       games.push(game)
     end
-      file = File.open('store/game.json', 'w') 
-      file.puts(JSON.generate(games))
-      file.close
-    end
-  
+    file = File.open('store/game.json', 'w')
+    file.puts(JSON.generate(games))
+    file.close
+  end
 
   def store_author
- authors = []
+    authors = []
     @authors.each do |author|
       author = { first_name: author.first_name, last_name: author.last_name }
       authors.push(author)
@@ -208,6 +208,7 @@ class App
       @authors << Author.new(author['first_name'], author['last_name'])
     end
   end
+
   def load_file_label
     file = File.read('store/label.json')
     data_hash = JSON.parse(file)
