@@ -109,7 +109,7 @@ To run tests, run the following command:
  
  ### Video Walkthrough
  
-- The [link](https://drive.google.com/file/d/10nQJ__1_6x_fZV_7pQkszlV35mwhVSvi/view?usp=share_link) to the video discussing about our application and its intereasting features!
+- The [link](https://drive.google.com/file/d/10nQJ__1_6x_fZV_7pQkszlV35mwhVSvi/view?usp=share_link) to the video discussing about our application and its interesting features!
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -144,7 +144,7 @@ To run tests, run the following command:
 - [ ] Add/edit media properties
 - [ ] User authetication and permissions
 - [ ] Integration with external APIs
-- [ ] And all of this will be built in a beautiful and well-organized way!
+ And all of this will be built in a beautiful and well-organized way!
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 <!-- CONTRIBUTING -->
